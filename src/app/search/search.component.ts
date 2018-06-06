@@ -10,11 +10,15 @@ import {Router, ActivatedRoute} from "@angular/router";
 })
 export class SearchComponent implements OnInit {
 
-  constructor() {
+  private term : string = "";
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.route.params.subscribe(params=> console.log(params))
   }
 
   doSearch() {
-    //TODO
+    this.router.navigate(["search", {value: this.term}])
+
+
   }
 
   onSearch(term: string) {
