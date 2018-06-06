@@ -23,8 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-            ],
+                    "D:/projects/bookshelf/book-shelf/node_modules/bootstrap/dist/css/bootstrap.min.css",
+                      "D:/projects/bookshelf/book-shelf/src/styles.css"
+                      ],
             "scripts": []
           },
           "configurations": {
