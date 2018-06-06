@@ -16,7 +16,8 @@ export class SearchComponent implements OnInit {
               private googleBooksService: GoogleBooksService) {
     this.route.params.subscribe(params=> {console.log(params);
     if(params['term']){
-      this.onSearch(params['term'])
+      this.term= params['term']
+      this.onSearch(this.term)
               }
     });
     
