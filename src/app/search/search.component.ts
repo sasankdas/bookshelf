@@ -11,18 +11,25 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class SearchComponent implements OnInit {
 
   private term : string = "";
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.route.params.subscribe(params=> console.log(params))
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private googleBooksService: GoogleBooksService) {
+    this.route.params.subscribe(params=> {console.log(params);
+    if(params['term']){
+      this.onSearch(params['term'])
+              }
+    });
+    
   }
 
   doSearch() {
-    this.router.navigate(["search", {value: this.term}])
+    this.router.navigate(["search", {term: this.term}])
 
 
   }
 
   onSearch(term: string) {
-    //TODO
+    this.googleBooksService.searchBooks(term);
   }
 
   ngOnInit() {
