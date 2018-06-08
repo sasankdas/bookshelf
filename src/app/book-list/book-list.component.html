@@ -4,7 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a>{{book.title}}</a>
+          <a [routerLink]="['/book', book.id]">{{book.title}}</a>
         </h3>
       </div>
       <div class="panel-body text-center">
@@ -16,13 +16,13 @@
         </div>
       </div>
       <img class="book-thumbnail"
-           src="http://lorempixel.com/g/200/300/"
+           src="{{book.smallThumbnail}}"
            alt="">
       <div class="panel-footer">
         <span>
           by
-          <span>
-            Asim Hussain
+          <span *ngFor="let author of books.author">
+            {{author}}
           </span>
         </span>
       </div>
