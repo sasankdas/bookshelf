@@ -25,7 +25,7 @@ this.getBook(params['bookId']);
 }
 
   getBook(bookId: string) {
-    this.googleBooksService.retrieveBook('bookId')
+    this.googleBooksService.retrieveBook(bookId)
           .subscribe(value => this.book=value);
           console.log(this.book)
   }
