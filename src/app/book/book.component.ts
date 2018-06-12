@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {Book} from "../shared/book";
 import { Router, ActivatedRoute } from "@angular/router";
 import { GoogleBooksService } from "../shared/google-books.service";
+import { LibraryService } from "../shared/library.service";
 
 @Component({
   selector: 'app-book',
@@ -13,7 +14,8 @@ export class BookComponent {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private googleBooksService: GoogleBooksService) {
+    private googleBooksService: GoogleBooksService,
+    private libraryService: LibraryService) {
 this.route.params.subscribe(params=> {console.log(params);
 if(params['bookId']){
 this.getBook(params['bookId']);
@@ -28,16 +30,21 @@ this.getBook(params['bookId']);
           console.log(this.book)
   }
 
-  hasBook(book: Book): boolean {
-    //TODO
-    return false;
+  hasBook(book: Book){
+      if(book){
+          this.libraryService.hasBook(book);
+      }
   }
 
   addBook(book: Book) {
-    //TODO
+    if(book){
+      this.libraryService.addBook(book);
+  }
   }
 
   removeBook(book: Book) {
-    //TODO
+    if(book){
+      this.libraryService.removeBook(book);
+  }
   }
 }

@@ -36,9 +36,13 @@
 
     <p>
       <button type="button"
+              *ngIf= "!hasBook(book)"
+              (click)= "addBook(book)"
               class="btn btn-primary">Add To Library
       </button>
       <button type="button"
+             *ngIf= "hasBook(book)"
+              (click)= "removeBook(book)"
               class="btn btn-default">Remove From Library
       </button>
     </p>
